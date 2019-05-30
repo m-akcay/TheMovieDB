@@ -244,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
 
             for (int currentPage=2; currentPage<=page_limit; currentPage++)     // page 1 is queried -> currentPage starts from 2
             {
-                function(queryResult);                      //  make queries for each page until reaching limit
+                expandResult(queryResult);                      //  make queries for each page until reaching limit
                 queryResult = getQueryResult(currentPage);  //  and call function for each queryResult
             }
 
@@ -309,7 +309,7 @@ public class MainActivity extends AppCompatActivity {
          * and adds them to resultList.
          * @param queryResult
          */
-        private void function(JSONArray queryResult)
+        private void expandResult(JSONArray queryResult)
         {
             int sizeOfResult;
             JSONObject tmpJson;
@@ -321,7 +321,7 @@ public class MainActivity extends AppCompatActivity {
             {
                 for (int j = 0; j < sizeOfResult; j++)
                 {
-                    tmpJson = queryResult.getJSONObject(j);     /// function ( queryResult )
+                    tmpJson = queryResult.getJSONObject(j);     
 
                     name = tmpJson.getString("name");
                     photoURL = PHOTO_URL + tmpJson.getString("profile_path");
